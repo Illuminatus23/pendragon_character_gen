@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pendragon Family History</title>
+        <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/foundation-icons.css">
+        <link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="css/app.css">
+        <script src="jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div class="row">
+            <div class="medium-6 columns">
+                <h1>Pendragon</h1>
+            </div>
+            <div class="medium-6 columns">
+                <label>Player</label>
+                <input type="text" placeholder="Player Name" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-6 columns">
+                <div class="callout">
+                    <h2><span id="campaignyeardesc">Prior to</span> <span id="campaignyear">439</span></h2>
+                    <div id="currentYearPanel">
+                        <p>By 439 A.D. your great grandfather, <span class="name-ggfather"></span> had passed away leaving his inheritance to your grandfather.  He earned <span id="glory-ggfather"></span> glory for the family.</p>
+                        <p>Your grandfather, <span class="name-gfather"></span> had been knighted and earned <span id="glory-gfather"></span> glory for the family thus far.</p>
+                        <p>Your father was also born that year, the first born of <span class="name-gfather"></span>.</p>
+                    </div>
+                    <a class="button" id="advanceYear">Advance One Year</a><br><a class="button" id="speedGenerate">Speed Generate Grandfather's Life</a>
+                </div>
+                <div class="alert callout">
+                    <h2>Glory</h2>
+                    <table id="glory">
+                        <tbody>
+                            <tr><td>Great-Grandfather (<span class="name-ggfather"></span>)</td><td class="ggf"></td></tr>
+                            <tr><td>Grandfather (<span class="name-gfather"></span>)</td><td class="gf"></td></tr>
+                            <tr><td>Father (<span class="name-father"></span>)</td><td class="father"></td></tr>
+                            <tr><td>You</td><td class="you"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="callout">
+                    <h2>Manor</h2>
+                    <div id="manorData"></div>
+                    <h2>Family</h2>
+                    <table id="family">
+                        <thead>
+                            <tr><th>Name</th><th>Relation</th><th>Age</th></tr>
+                            <tr><th colspan="3">Knights</th></tr>
+                        </thead>
+                        <tbody class="knights">
+                        </tbody>
+                        <thead>
+                            <tr><th colspan="3">Other Living Relatives</th></tr>
+                        </thead>
+                        <tbody class="others">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="medium-6 columns">
+                <div class="primary callout">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>Family History</h3>
+                            <div id="timeline">
+                                <p>410 A.D. -- Britain is part of the Roman Empire and is harried by Irish Raiders from the West, Picts from the North and Saxons from the East.  
+                                    Rome is unable to help so the high council of Briton nobles choose Constantin as their King and consider themselves independent.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="secondar callout">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>Family Passions</h3>
+                            <table id="passions">
+                                <thead>
+                                    <tr><th>Passion</th><th>Value</th></tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="row">
+            <div class="columns">
+                <div class="callout">
+                    <h2>Manor</h2>
+                    <div id="manorData"></div>
+                    <h2>Family</h2>
+                    <table id="family">
+                        <thead>
+                            <tr><th>Name</th><th>Relation</th><th>Age</th></tr>
+                            <tr><th colspan="3">Knights</th></tr>
+                        </thead>
+                        <tbody class="knights">
+                        </tbody>
+                        <thead>
+                            <tr><th colspan="3">Other Living Relatives</th></tr>
+                        </thead>
+                        <tbody class="others">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="columns treewrap">
+                <div class="callout tree" id="family-tree">
+                    <ul class="firstgen">
+                        <li><div class="greatgrandfather"></div>
+                            <ul class="secondgen">
+                                <li><div class="grandfather"></div>
+                                    <ul class="thirdgen">
+                                        <li><div class="father"></div>
+                                            <ul class="yourgen">
+                                                <li>
+                                                    <div><span class="you male">You<br><br><small>465-</small></span></div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p style="clear:both;">&nbsp;</p>
+                    <ul class="mothertree">
+                        <li><div class="maternalgrandfather"><span class="male">Maternal Grandfather</span><span class="female">Maternal Grandmother</span></div>
+                            <ul class="motherthirdgen">
+                                <li><div class="mother"></div>
+                                    <ul class="yourgen">
+                                        <li>
+                                            <div><span class="you male">You<br><small>465-</small></span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <p style="clear:both;">&nbsp;</p>
+                    <div id="buttonWrapper"><a href="#" class="button" id="showMotherTree">Mother's Tree</a>
+                    <a href="#" class="button" id="showFatherTree">Father's Tree</a>
+                    <div class="key">
+                        <span class="male">Male</span>
+                        <span class="male knight">Knight</span>
+                        <span class="male bastard">Bastard</span>
+                        <span class="female">Female</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/family-generator.js"></script>
+    </body>
+</html>

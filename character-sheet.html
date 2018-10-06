@@ -1,0 +1,732 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pendragon Sheet</title>
+        <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/foundation-icons.css">
+        <link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="css/app.css">
+        <script src="jquery.min.js"></script>
+ 
+    </head>
+    <body>
+        <div class="row">
+            <div class="medium-6 columns">
+                <h1>Pendragon</h1>
+            </div>
+            <div class="medium-6 columns">
+                <label>Player</label>
+                <input type="text" placeholder="Player Name" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <div class="primary callout">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>Personal Data</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label>Name</label>
+                            <div class="input-group randomEntry" data-type="name">
+                                <input class="input-group-field" type="text" placeholder="Character Name" id="charName"/>
+                                <a title="generate random" class="input-group-label"><i class="fi-die-five"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label>Homeland</label>
+                            <div class="input-group randomEntry" data-type="kingdom">
+                                <input id="homeland" class="input-group-field" type="text" placeholder="Homeland" />
+                                <a title="generate random" class="input-group-label"><i class="fi-die-five"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <label>Culture</label>
+                            <input id="culture" type="text" placeholder="Culture" disabled />
+                        </div>
+                        <div class="large-6 columns">
+                            <label>Religion</label>
+                            <input id="religion" type="text" placeholder="Religion" disabled />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label>Father's Name</label>
+                            <div class="input-group randomEntry" data-type="name">
+                                <input class="input-group-field" type="text" placeholder="Father's Name" />
+                                <a title="generate random" class="input-group-label"><i class="fi-die-five"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <label>Father's Class</label>
+                            <div class="input-group randomEntry" data-type="class">
+                                <input class="input-group-field"  type="text" placeholder="Father's Class" id="fatherClass" data-classlevel="0" />
+                                <a title="generate random" class="input-group-label"><i class="fi-die-five"></i></a>
+                            </div>
+                        </div>
+                        <div class="large-6 columns">
+                            <label>Son Number</label>
+                            <div class="input-group randomEntry" data-type="son">
+                                <input class="input-group-field" type="number" value='0' />
+                                <a title="generate random" class="input-group-label"><i class="fi-die-five"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label>Leige Lord</label>
+                            <div class="row">
+                                <div class="medium-3 columns">
+                                    <input id="LordTitle" type="text" placeholder="Title" />
+                                </div>
+                                <div class="medium-9 columns">
+                                    <input id="LordName" type="text" placeholder="Name" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label>Current Class</label>
+                            <input type="text" placeholder="Current Class" value="Squire" id="selfClass"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label>Current Home</label>
+                            <input type="text" placeholder="Current Home" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <label>Age</label>
+                            <input type="number" id="knightAge" value="15" />
+                        </div>
+                        <div class="large-6 columns">
+                            <label>Year Born</label>
+                            <div class="input-group">
+                                <input class="input-group-field" id="yearBorn" type="number" value='480' />
+                                <span class="input-group-label">AD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="secondary callout">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>Personality Traits</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-4 small-6 columns">
+                            <label class="middle">Religious Bonus: <strong id="relBonus"> None</strong> <strong id="noRelBonus"> None</strong> </label>
+                        </div>
+                        <div class="medium-3 small-3 columns">
+                            <label class="text-right middle">Chivalry Total</label>
+                        </div>
+                        <div class="medium-2 small-3 columns">
+                            <input id="ChivTotal" type="number" value="0" disabled />
+                        </div>
+                        <div class="medium-3 columns text-right ">
+                            <a id="rollVirtues" class="button">Roll Virtues</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <p class="callout warning rollWarning">
+                                You have <span id="adjPoints">0</span> adjustment points to spend
+                            </p>
+                        </div>
+                    </div>
+                    <div id="virtueBars">
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label christian virtueButton">Chaste</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label pagan viceButton">Lustful</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label pagan chivalry virtueButton"><i title=" Chivalrous Virtue" class="fi-shield"></i> Energentic</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Lazy</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label christian virtueButton">Forgiving</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Vengeful</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label pagan wotanic chivalry virtueButton"><i title=" Chivalrous Virtue" class="fi-shield"></i> Generous</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Selfish</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label pagan virtueButton">Honest</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Deceitful</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label virtueButton"><i title=" Chivalrous Virtue" class="fi-shield"></i> Just</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Arbitrary</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label christian chivalry virtueButton"><i title=" Chivalrous Virtue" class="fi-shield"></i> Merciful</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Cruel</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label christian chivalry virtueButton"><i title=" Chivalrous Virtue" class="fi-shield"></i> Modest</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label pagan wotanic viceButton">Proud</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label virtueButton">Pious</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label wotanic viceButton">Worldly</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label christian virtueButton">Temperate</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label wotanic viceButton">Indulgent</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label virtueButton">Trusting</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Suspicious</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="input-group">
+                                    <label class="input-group-label wotanic chivalry virtueButton"><i title=" Chivalrous Virtue" class="fi-shield"></i> Valorous</label>
+                                    <div class="progress tall" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-meter" style="width: 50%">
+                                            <p class="progress-meter-text">
+                                                10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <label class="input-group-label viceButton">Cowardly</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert callout">
+                    <div class="row">
+                        <div class="medium-9 columns">
+                            <h3>Passions</h3>
+                        </div>
+                        <div class="medium-3 columns text-right ">
+                            <a id="rollPassions" class="button">Roll Passions</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <table id="passionTable">
+                                <thead>
+                                    <tr>
+                                        <th>emotion</th>
+                                        <th class="text-center">subject</th>
+                                        <th class="text-right">intensity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Loyalty</td>
+                                        <td class="text-center">Liege</td>
+                                        <td class="Loyalty Liege text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Love</td>
+                                        <td class="text-center">Family</td>
+                                        <td class="Love Family text-right"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="large-6 columns">
+                <div class="callout">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h3>Statistics</h3>
+                        </div>
+                    </div>
+                    <div class="row text-center" id="statsWrapper">
+                        <div class="medium-2 columns">
+                            <div class="stat SIZ">
+                                <label>SIZ</label>
+                                <label>0</label>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns">
+                            <div class="stat DEX">
+                                <label>DEX</label>
+                                <label>0</label>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns">
+                            <div class="stat STR">
+                                <label>STR</label>
+                                <label>0</label>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns">
+                            <div class="stat CON">
+                                <label>CON</label>
+                                <label>0</label>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns">
+                            <div class="stat APP">
+                                <label>APP</label>
+                                <label>0</label>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns">
+                            <a id="rollStats" class="button"><i class="fi-die-five"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center" id="subStatsWrapper">
+                        <div class="row ">
+                            <div class="large-12 columns">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="medium-3 columns">
+                                <div class="stat">
+                                    <label>Hit Points</label>
+                                    <label class="HP">0</label>
+                                </div>
+                            </div>
+                            <div class="medium-3 columns">
+                                <div class="stat">
+                                    <label>Mjr Wound</label>
+                                    <label class="Wound">0</label>
+                                </div>
+                            </div>
+                            <div class="medium-3 columns">
+                                <div class="stat">
+                                    <label>Knockdown</label>
+                                    <label class="Knockdown">0</label>
+                                </div>
+                            </div>
+                            <div class="medium-3 columns">
+                                <div class="stat">
+                                    <label>Unconcious</label>
+                                    <label class="Unconcious">0</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            &nbsp;
+                        </div>
+                        <div class="row ">
+                            <div class="medium-4 columns">
+                                <label>Move</label>
+                                <div class="input-group">
+                                    <label class="bordered Move">0</label>
+                                    <span class="input-group-label">Yards/round</span>
+                                </div>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>Damage</label>
+                                <div class="input-group">
+                                    <label class="bordered Damage">0</label>
+                                    <span class="input-group-label">d6</span>
+                                </div>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>Healing</label>
+                                <div class="input-group">
+                                    <label class="bordered Healing">0</label>
+                                    <span class="input-group-label">points/week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="callout alert">
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <h4>Distinctive Features</h4>
+
+                        </div>
+                        <div class="large-6 columns">
+                            <ul id="distinctiveFeaturesList"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="callout">
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <h4>Heraldry</h4>
+                            <label>Ordinaries</label>
+                            <select id="heraldOrdinaries">
+                                <option value="none">None</option>
+                                <option value="perFess">Per Fess</option>
+                                <option value="perPale">Per Pale</option>
+                                <option value="perBend">Per Bend</option>
+                                <option value="perChevron">Per Chevron</option>
+                                <option value="perSaltive">Per Saltive</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="aPale">A Pale</option>
+                                <option value="aFess">A Fess</option>
+                                <option value="aChief">A Chief</option>
+                                <option value="aBend">A Bend</option>
+                                <option value="mullet">Mullet</option>
+                            </select>
+                            <label>First Color</label>
+                            <select id="heraldColorOne">
+                                <option value="argent">Argent</option>
+                                <option value="or">Or</option>
+                                <option value="azure">Azure</option>
+                                <option value="gules">Gules</option>
+                                <option value="purpure">Purpure</option>
+                                <option value="sable">Sable</option>
+                                <option value="vert">Vert</option>
+                            </select>
+                            <label>Second Color</label>
+                            <select id="heraldColorTwo">
+                                <option value="or">Or</option>
+                                <option value="argent">Argent</option>
+                                <option value="azure">Azure</option>
+                                <option value="gules" selected="selected">Gules</option>
+                                <option value="purpure">Purpure</option>
+                                <option value="sable">Sable</option>
+                                <option value="vert">Vert</option>
+                            </select>
+                            <label>Charge</label>
+                            <select id="heraldChargeSelect">
+                                <option value="or" selected="selected">None</option>
+                                <option value="boars-head-couped">Boar Head</option>
+                                <option value="Crescent">Crescent</option>
+                                <option value="dolphin-naiant">Dolphin</option>
+                                <option value="lion-couchant">Lion Couchant</option>
+                                <option value="lion-sejant">Lion Sejant</option>
+                                <option value="maltese-cross">Maltese Cross</option>
+                                <option value="martlet">Martlet</option>
+                                <option value="quarterfoil">Quarterfoil</option>
+                            </select>
+
+                        </div>
+                        <div class="large-6 columns" id="heraldry">
+                            <div id="heraldWrapper">
+                            <div id="color-one" class="argent">
+                                <div id="color-two" class="gules"></div>
+                                <img class="shieldBorder" src="css/shieldMask.png"></div>
+                            <div id="heraldChargeWrapper"></div>
+                            </div>
+
+                            <p class="help-text" style="margin-top: 0;">Heraldric colors are divided into metals (Or and Argent) and colors (Gules, Sable, etc).  Traditional coats of arms should select one metal and one color.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="callout success">
+                    <div id="skillWrapper">
+                        <div class="row">
+                        <div class="large-12 columns">
+                            <p class="callout warning skillRollWarning">
+                                You have <span id="skillAdjPoints">35</span> adjustment points to spend
+                            </p>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="medium-6 columns">
+                                <h4>Skills</h4>
+                                <div class="input-group">
+                                    <span class="input-group-label">Awareness</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Awareness" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Boat</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Boat" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Chirurgery</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Chirurgery" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Courtesy</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Courtesy" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Dance</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Dance" />
+                                </div>
+                                <div class="input-group knightSkill">
+                                    <span class="input-group-label"><i class="fi-star"></i> First Aid</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-First_Aid" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Folklore</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Folklore" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Game</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Game" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Hawking</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Hawking" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Heraldry</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Heraldry" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Intrigue</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Intrigue" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Joust</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Joust" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Orate</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Orate" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Recognize</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Recognize" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Sing</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Sing" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Stewardship</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Stewardship" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Swim</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Swim" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Track</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Track" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Worship</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Worship" />
+                                </div>
+                            </div>
+                            <div class="medium-6 columns">
+                                <h4>Battle Skills</h4>
+                                <div id="battleSkills">
+                                    <div class="input-group knightSkill">
+                                        <span class="input-group-label"><i class="fi-star"></i> Battle</span>
+                                        <input class="input-group-field" type="number" max="15" id="skill-Battle" />
+                                    </div>
+                                    <div class="input-group knightSkill">
+                                        <span class="input-group-label"><i class="fi-star"></i> Lance</span>
+                                        <input class="input-group-field" type="number" max="15" id="skill-Lance" />
+                                    </div>
+                                    <div class="input-group knightSkill">
+                                        <span class="input-group-label"><i class="fi-star"></i> Ride</span>
+                                        <input class="input-group-field" type="number" max="15" id="skill-Ride" />
+                                    </div>
+                                    <div class="input-group knightSkill">
+                                        <span class="input-group-label"><i class="fi-star"></i> Sword</span>
+                                        <input class="input-group-field" type="number" max="15" id="skill-Sword" />
+                                    </div>
+                                </div>
+                                <h4>Culture</h4>
+                                <div class="input-group">
+                                    <span class="input-group-label">Cymric Custom</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Cymric_Custom" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Cymric Literacy</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Cymric_Literacy" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Speak Cymric</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Speak_Cymric" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Irish Custom</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Irish_Custom" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Speak Irish</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Speak_Irish" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Roman Custom</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Roman_Custom" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Latin Literacy</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Latin_Literacy" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Speak Latin</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Speak_Latin" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Pictish Custom</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Pictish_Custom" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Speak Pictish</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Speak_Pictish" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Saxon Custom</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Saxon_Custom" />
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-label">Speak Saxon</span>
+                                    <input class="input-group-field" type="number" max="15" id="skill-Speak_Saxon" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="callout primary">
+                    <div class="row">
+                        <div class="large-12 columns ageCallout">
+                            <h3>Aging and Knighthood</h3>
+                            <p>Knighthood requires the following:</p>
+                            <ul>
+                                <li>Liege Loyalty of 15 <span class="failed">(currently <span id="loyaltyValidation">0</span>)</span></li>
+                                <li>Skill of 10 in all starred <i class="fi-star"></i> skills above. <span class="failed">(currently <span id="skillValidation">0</span> of 7 skills are at 10)</span></li>
+                                <li>Skill of 10 in any two additional non-combat skills <span class="failed">(currently <span id="electiveValidation">0</span> of 2 skills are at 10)</span></li>
+                            </ul>
+                            <p>You will be aged 1 year for each point of Liege Loyalty gain.<br>
+                            You will then gain 1 year for each 1d6 pts of skills.<br>The first gains will occur automatically.</p>
+                            <a class="button" id="ageKnight" data-step="0">Age Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/pendragon.js"></script>
+    </body>
+</html>
