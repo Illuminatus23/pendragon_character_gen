@@ -3,12 +3,19 @@
     margin-bottom: 0;
     height: 2rem;
 }
-#relBonus, .rollWarning, .skillRollWarning {
+.rollWarning, .skillRollWarning {
     display: none;
 }
 .virtueButton, .viceButton {
     cursor: pointer;
-    min-width: 115px;
+    min-width: 125px;
+    padding: 0 0.5rem;
+}
+.virtueButton i, .viceButton i {
+    margin-right: .4rem;
+}
+#virtueBars i.fi-eye, #virtueBars i.fi-book-bookmark {
+    display:none;
 }
 .bonusColor {
     color: #157539;
@@ -24,6 +31,9 @@ h1, h2, h3, h4, h5 {
 }
 #statsWrapper .stat, #subStatsWrapper .stat {
     border: 1px solid #e6e6e6;
+}
+#statsWrapper .stat input {
+    margin-bottom:0;
 }
 .bordered {
     border: 1px solid #cacaca;
@@ -171,6 +181,18 @@ h1, h2, h3, h4, h5 {
     height: 80px;
     width:250px;
     position: absolute;
+}
+#heraldry .paly #color-two {
+    height: 250px;
+    width: 250px;
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 23% 100%, 23% 0%, 36% 0%, 36% 100%, 50% 100%, 50% 0%, 63% 0%, 63% 100%, 78% 100%, 78% 0);
+    clip-path: polygon(0% 0%, 0% 100%, 23% 100%, 23% 0%, 36% 0%, 36% 100%, 50% 100%, 50% 0%, 63% 0%, 63% 100%, 78% 100%, 78% 0);
+}
+#heraldry .barry #color-two {
+    height: 250px;
+    width: 250px;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 17%, 0% 17%, 0% 33%, 100% 33%, 100% 50%, 0% 50%, 0% 66%, 100% 66%, 100% 84%, 0% 84%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 17%, 0% 17%, 0% 33%, 100% 33%, 100% 50%, 0% 50%, 0% 66%, 100% 66%, 100% 84%, 0% 84%);
 }
 #timeline .family {
     font-weight: bold;
@@ -327,4 +349,44 @@ border-color: #94a0b4;
 }
 .mothertree, .firstgen {
     display: none;
+}
+.overlay {
+    width: 100%;
+    height: 300%;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.highlighted {
+    z-index: 1000;
+    position:relative;
+}
+.pendragonTooltip {
+    max-width: 100%;
+    width: 100%;
+    top: 0;
+    display: none;
+}
+.highlighted .pendragonTooltip {
+    display:block;
+}
+.pendragonTooltip.right {
+    left: 100%;
+}
+.pendragonTooltip.left {
+    right: 100%;
+}
+.pendragonTooltip table {
+    color: #000;
+}
+.pendragonTooltip table td {
+    width : 50%;
+}
+.pendragonTooltip table input[type="checkbox"] {
+    margin:0;
+}
+.skillstep-2, #traitRaiseWrapper, #statRaiseWrapper, .button.AgeKnight {
+    display:none;
 }
