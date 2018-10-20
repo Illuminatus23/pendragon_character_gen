@@ -1515,4 +1515,3 @@ pendragonfamily = {
         pendragonfamily.drawFamilyTable(familymembers, $('#family tbody.others'));
     }
 };
-pendragonfamily.initPendragonFamily();
