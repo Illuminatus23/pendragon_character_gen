@@ -68,6 +68,9 @@ h1, h2, h3, h4, h5 {
 #distinctiveFeaturesList li {
     text-transform: capitalize;
 }
+#exportData {
+	display:none;
+}
 #heraldry .or {
     background: #FFE400;
 }
@@ -199,10 +202,24 @@ h1, h2, h3, h4, h5 {
 }
 /*tree test styles*/
 .treewrap {
-    overflow-x: scroll;
+/*    overflow-x: scroll; */
+}
+.eventlog {
+   overflow-y: scroll;
+   height: 200px;
+   margin-bottom: 1rem;
+}
+.eventlog p {
+	margin-bottom: 0.25rem;
 }
 .tree {
 min-width: 3000px;
+}
+.found {
+	display:none;
+}
+tr.dead {
+	color: gray;
 }
 .tree ul {
 padding-top: 20px;
@@ -287,6 +304,9 @@ transition: all 0.5s;
 -webkit-transition: all 0.5s;
 -moz-transition: all 0.5s;
 }
+.tree li div.leftclan {
+	border: 3px solid #000;
+}
 
 .tree li div .male, .key .male {
 background-color:lightblue;
@@ -299,7 +319,7 @@ border-radius: 5px;
 border: solid 2px white;
 }
 .tree li div .male.bastard, .key .male.bastard {
-    background-color: lightgray;
+    background-color: lavender;
 }
 .tree li div .male.step {
     background-color: lightgreen;
@@ -307,6 +327,7 @@ border: solid 2px white;
 .tree li div .knight, .key .knight {
     border: solid 2px goldenrod;
 }
+
 .tree li div .female, .key .female {
 background-color:lightpink;
 display: inline-block;
@@ -326,6 +347,9 @@ border: solid 2px white;
 background-color:lightblue;
 display: inline-block;
 width:10px;
+}
+.tree li div .deceased, .key .deceased {
+	background-color: lightgray !important;
 }
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/

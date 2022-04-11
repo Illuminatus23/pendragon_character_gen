@@ -1211,7 +1211,6 @@ pendragonfamily = {
             var name = 'Sir ' + nameBase + ' ' + knightTitle;
             var relation = (isPaternal)? 'Father\'s ': 'Mother\'s ';
             var weight = (isPaternal)? 1000: 2000;
-			var recordedRelation = '';
             
             if (isBastard || selection.length === 0) { //no viable options, create new member
                 //look for sisters first
@@ -1219,8 +1218,20 @@ pendragonfamily = {
                 var motherSis = $('.motherthirdgen .male').not('.mother, .married');
                 var sisterSelection =(isPaternal)?fatherSis:motherSis; 
                 var bastard = (isBastard) ? ' bastard' : '';
-                var markup;
-				//relation = (isBastard) ? relation + 'illegitimate brother' : relation + ' brother';
+				var recordedRelation = (isBastard) ? relation + 'illegitimate brother' : relation + ' brother';
+                var markup = pendragonfamily.createTreeMarkup(
+                        'parentsib-newknight-' + i,
+                        shortName,
+                        knightTitle,
+                        birthYear,
+                        0,
+                        'male',
+                        'knight' + bastard,
+                        '',
+                        0,
+                        0,
+						recordedRelation
+                    );
                 if (isBastard) {
                     relation = relation + 'illegitimate brother';
                 } else {
@@ -1257,19 +1268,6 @@ pendragonfamily = {
                 pendragonfamily.storeFamilyMember(marked,relation, true);
                 console.log('knighted ' + marked.find('.famName').text());
             }
-			markup = pendragonfamily.createTreeMarkup(
-                'parentsib-newknight-' + i,
-                shortName,
-                knightTitle,
-                birthYear,
-                0,
-                'male',
-                'knight' + bastard,
-                '',
-                0,
-                0,
-				relation
-            );
         }
     },
     selectYoungKnights: function (count) {
@@ -1325,7 +1323,6 @@ pendragonfamily = {
                 //console.log('created bastard ' + shortName);
             } else if (isYoungerBro) {
                 var marked = yourBros.random();
-				marked.attr('data-id',marked.attr('data-id').replace('N','K')); 
                 marked.addClass('knight');
                 marked.find('.knightTitle').text(knightTitle);
                 marked.find('.famName').prepend('Sir ');
@@ -1419,7 +1416,6 @@ pendragonfamily = {
         var knightTitle = (gender==="male")? title:'';
         var spouseTitle = (gender==="male")? '':title;
         var markupEntry = '';
-		//var spouseRelation = relationship.replace('father','mother');
 		var spouseRelation = relationship.replace('father','mother');
 		// Fam ID is [GENDER M/F][BASTARD T/F][KNIGHT N/K/E/D][YEARBORN 000]
 		var baseName = name.replace("Sir ", "");
